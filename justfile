@@ -1,5 +1,8 @@
-default:
-    @echo "Usage: just <dayXX>"
+set shell := ["bash", "-cu"]
 
-FNAME:
-    cat input/{{FNAME}}.txt | cargo run --release --bin {{FNAME}}
+default:
+    @echo "Usage: just run <dayXX>"
+    @echo "Example: just run day01"
+
+run fname:
+    cat "input/{{fname}}.txt" | cargo run --release --bin "{{fname}}"
