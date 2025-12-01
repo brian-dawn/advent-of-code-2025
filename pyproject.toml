@@ -5,3 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
+
+[tool.uv]
+dev-dependencies = [
+    "mypy>=1.11.0",
+    "ruff>=0.14.7",
+    "ty>=0.0.1a29",
+]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_unreachable = true
+pretty = true
