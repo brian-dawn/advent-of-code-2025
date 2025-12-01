@@ -31,5 +31,5 @@ for line in sys.stdin:
     assert spot < 100 and spot >= 0
 
 
-print(part1)
-print(part2)
+print(f"part1: {part1}")
+print(f"part2: {part2}")
