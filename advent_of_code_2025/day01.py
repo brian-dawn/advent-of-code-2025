@@ -19,15 +19,11 @@ for line in sys.stdin:
     else:
         raise Exception("Unknown direction")
 
-    if new_spot < 0 or new_spot >= 100:
+    if new_spot <= 0 or new_spot >= 100:
 
-        if new_spot < 0 and spot != 0:
+        if new_spot <= 0 and spot != 0:
             part2 += 1
         part2 += int(abs(new_spot) / 100)
-
-    if new_spot == 0 and spot != 0:
-        part2 += 1
-    
 
     new_spot = new_spot % 100
     if new_spot == 0:
