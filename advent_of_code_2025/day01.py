@@ -9,7 +9,6 @@ for line in sys.stdin:
 
     num = int(line[1:])
 
-
     new_spot = spot
 
     if line[0] == "L":
@@ -20,7 +19,6 @@ for line in sys.stdin:
         raise Exception("Unknown direction")
 
     if new_spot <= 0 or new_spot >= 100:
-
         if new_spot <= 0 and spot != 0:
             part2 += 1
         part2 += int(abs(new_spot) / 100)
@@ -35,7 +33,3 @@ for line in sys.stdin:
 
 print(part1)
 print(part2)
-
-
-
-
