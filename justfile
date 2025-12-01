@@ -5,4 +5,4 @@ default:
     @echo "Example: just run day01"
 
 run fname:
-    cat "input/{{fname}}.txt" | cargo run --release --bin "{{fname}}"
+    cat "input/{{fname}}.txt" | uv run python -m advent_of_code_2025."{{fname}}"
