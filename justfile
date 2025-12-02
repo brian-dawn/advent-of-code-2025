@@ -12,3 +12,6 @@ tc:
 
 fmt:
   uv run ruff format
+
+pydoc name:
+  uv run python -m pydoc {{name}}
