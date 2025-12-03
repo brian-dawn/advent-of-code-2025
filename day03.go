@@ -6,12 +6,10 @@ import (
 	"os"
 )
 
-
-
-
 func main() {
 
 	scanner := bufio.NewScanner(os.Stdin)
+	part1 := 0
 	for scanner.Scan() {
 		line := scanner.Text()
 
@@ -19,11 +17,10 @@ func main() {
 		// dominates.
 		firstMax := 0
 		secondMax := 0
-		for i, ch := range(line) {
-
+		for i, ch := range line {
 
 			num := int(ch - '0')
-			notLast := i != len(line) - 1
+			notLast := i != len(line)-1
 
 			if firstMax < num && notLast {
 				firstMax = num
@@ -38,12 +35,11 @@ func main() {
 
 		}
 
-		fmt.Println(firstMax, secondMax)
-
+		maxJolt := firstMax * 10 + secondMax
+		part1 += maxJolt
 
 
 	}
 
-	
-
+	fmt.Println("part1:", part1)
 }
