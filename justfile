@@ -6,10 +6,14 @@ default:
   @echo "Example: just run day01"
 
 run fname:
-  @if [ -f "{{fname}}.go" ]; then \
-    cat "input/{{fname}}.txt" | go run "{{fname}}.go"; \
+  @set -euo pipefail
+  @if [ -f "{{fname}}/main.go" ]; then \
+    cat "{{fname}}/input.txt" | go run "./{{fname}}"; \
+  elif [ -f "{{fname}}/main.py" ]; then \
+    cat "{{fname}}/input.txt" | uv run python "./{{fname}}/main.py"; \
   else \
-    cat "input/{{fname}}.txt" | uv run python -m "{{fname}}"; \
+    echo "No main.go or main.py found in {{fname}}" >&2; \
+    exit 1; \
   fi
 
 tc:
