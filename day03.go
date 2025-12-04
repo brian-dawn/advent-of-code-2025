@@ -19,16 +19,14 @@ func digitsToInt(digits []int) int {
 func main() {
 
 	scanner := bufio.NewScanner(os.Stdin)
-	part1 := 0
-	part2 := 0
+	var part1, part2 int
 
 	for scanner.Scan() {
 		line := scanner.Text()
 
 		// For part 1 we find the biggest number that's not at the end of the list since the 10s place
 		// dominates.
-		firstMax := 0
-		secondMax := 0
+		var firstMax, secondMax int
 		for i, ch := range line {
 
 			num := int(ch - '0')
@@ -56,12 +54,11 @@ func main() {
 			nums = append(nums, num)
 		}
 
-
 		keptJolts := []int{}
 
 		// can keep 12 digits.
 		windowSize := len(nums) - 12 + 1
-		i := 0
+		var i int
 		for {
 			if i == len(nums) {
 				break
@@ -88,7 +85,7 @@ func main() {
 		}
 
 		// Remove any trailing numbers if there were no good removal candidates.
-		keptJolts = keptJolts[0 : 12]
+		keptJolts = keptJolts[:12]
 		joltage := digitsToInt(keptJolts)
 		part2 += joltage
 	}
