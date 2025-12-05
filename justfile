@@ -21,7 +21,7 @@ tc:
 
 fmt:
   uv run ruff format
-  go fmt .
+  rg --files -g '*.go' -0 | xargs -0 gofmt -w
 
 pydoc name:
   uv run python -m pydoc {{name}}
